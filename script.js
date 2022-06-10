@@ -1,7 +1,6 @@
 let img = document.querySelector('#img');
 
-let ligar = document.querySelector('#ligar');
-let desligar = document.querySelector('#desligar');
+let ligardesligar = document.querySelector('#ligardesligar');
 
 function isLampBroken(){
     return img.src.indexOf('quebrada') >-1
@@ -26,10 +25,19 @@ function lampadaQuebrada(){
 
 }
 
+function lampOnOff(){
+    if(ligardesligar.textContent == 'Ligar'){
+        ligarLampada();
+        ligardesligar.textContent = 'Desligar'
+    }else{
+        desligarLampada();
+        ligardesligar.textContent = 'Ligar'
+    }
+}
 
 
+ligardesligar.addEventListener('click', lampOnOff, false);
 ligar.addEventListener('click', ligarLampada, false);
-desligar.addEventListener('click', desligarLampada, false);
 img.addEventListener('dblclick', lampadaQuebrada, false);  
 img.addEventListener('mouseover', ligarLampada);
 img.addEventListener('mouseleave', desligarLampada);
